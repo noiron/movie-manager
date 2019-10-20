@@ -4,7 +4,12 @@
 import React from 'react';
 import './index.css';
 
-const FileCard = ({ file }) => {
+interface IFile {
+  name: string; 
+  path: string;
+}
+
+const FileCard = ({ file }: { file: IFile }) => {
 
   return (
     <section className="file-card">
