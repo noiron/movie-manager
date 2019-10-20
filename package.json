@@ -7,6 +7,7 @@
   "dependencies": {
     "electron": "^6.0.12",
     "foreman": "^3.0.1",
+    "md5-file": "^4.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0"
@@ -18,7 +19,7 @@
     "eject": "react-scripts eject",
     "electron": "electron .",
     "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
-    "dev" : "nf start"
+    "dev": "nf start"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,27 @@
+.file-card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
+  padding: 5px;
+  min-height: 30px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 600px;
+  max-width: 800px;
+  color: #333;
+}
+
+.file-card .file-name {
+  margin: 0 20px;
+  text-align: center;
+  width: 200px;
+  border-right: 1px solid #ccc;
+  flex: 0 0 250px;
+}
+
+.file-card .file-path {
+  flex: 1 1 auto;
+  margin: 0 20px;
+  font-size: 12px;
+}

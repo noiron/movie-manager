@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { traverseFolder } from './file';
+import FileList from './components/file-list';
+
+// const electron = window.require('electron').remote
+// const { dialog } = electron;
+
+const path = require('path');
+
+const folder1 = '/Users/wukai/Movies';
+const folder2 = '/Users/wukai/Downloads';
 
 function App() {
+  const list1 = [];
+  traverseFolder(path.resolve(folder1), list1);
+
+  const list2 = [];
+  traverseFolder(path.resolve(folder2), list2);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>{folder1}</p>
+      <FileList list={list1} />
+
+      <p>{folder2}</p>
+      <FileList list={list2} />
     </div>
   );
 }

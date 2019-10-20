@@ -1,9 +1,8 @@
 const fs = window.require('fs');
 const path = window.require('path');
 
-const fileList = [];
 
-export function traverseFolder(filePath) {
+export function traverseFolder(filePath, fileList = []) {
 
   const list = fs.readdirSync(filePath);
 
@@ -23,7 +22,7 @@ export function traverseFolder(filePath) {
         fileList.push({ name: filename, path: absolutePath });
       }
       if (isDir) {
-        traverseFolder(absolutePath);
+        traverseFolder(absolutePath, fileList);
       }
 
     } catch (err) {
