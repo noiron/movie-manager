@@ -2,30 +2,41 @@ import React from 'react';
 import './App.css';
 import { traverseFolder } from './file';
 import FileList from './components/file-list';
+import { fileSuffixFilter } from './utils';
 
 // const electron = window.require('electron').remote
 // const { dialog } = electron;
 
 const path = require('path');
 
-const folder1 = '/Users/wukai/Movies';
-const folder2 = '/Users/wukai/Downloads';
+
+const folders = [
+  '/Users/wukai/Movies',
+  '/Users/wukai/Downloads',
+];
+const movieSuffixs = ['rmvb', 'avi', 'mkv', 'mp4'];
 
 function App() {
-  const list1 = [];
-  traverseFolder(path.resolve(folder1), list1);
 
-  const list2 = [];
-  traverseFolder(path.resolve(folder2), list2);
-
+  const lists = [];
+  folders.forEach(folder => {
+    const list = [];
+    traverseFolder(path.resolve(folder), list);
+    lists.push(list.filter((file) => fileSuffixFilter(file.name, movieSuffixs)));
+  });
 
   return (
     <div className="App">
-      <p>{folder1}</p>
-      <FileList list={list1} />
-
-      <p>{folder2}</p>
-      <FileList list={list2} />
+      {
+        folders.map((folder, index) => {
+          return (
+            <div>
+            <p>{folder}</p>
+            <FileList list={lists[index]} />
+            </div>
+          )
+        })
+      }
     </div>
   );
 }

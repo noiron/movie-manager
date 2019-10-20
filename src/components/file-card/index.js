@@ -8,8 +8,8 @@ const FileCard = ({ file }) => {
 
   return (
     <section className="file-card">
-      <div className="file-name">{file.name.slice(0, 30)}</div>
-      <div className="file-path">{file.path.slice(0, 60)}</div>
+      <div className="file-name">{file.name.slice(0, 100)}</div>
+      <div className="file-path">{file.path.slice(0, 100)}</div>
     </section>
   )
 }
